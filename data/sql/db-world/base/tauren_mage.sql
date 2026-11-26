@@ -14,3 +14,11 @@ INSERT INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `typ
 SELECT 6, 8, `button`, `action`, `type`
 FROM `playercreateinfo_action`
 WHERE `race` = 8 AND `class` = 8;
+
+-- 3. Skills (Dagas y Espadas de Mago para Tauren: raceMask = 32, classMask = 128)
+DELETE FROM `playercreateinfo_skills`
+WHERE `raceMask` = 32 AND `classMask` = 128 AND `skill` IN (173, 43);
+
+INSERT INTO `playercreateinfo_skills` (`raceMask`, `classMask`, `skill`, `rank`, `comment`) VALUES
+(32, 128, 173, 0, 'Tauren Mage - Daggers'),
+(32, 128, 43,  0, 'Tauren Mage - Swords');
